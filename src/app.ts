@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
+import userRoutes from "./routes/userRoutes";
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello, Express with TypeScript & MongoDB!");
 });
+
+app.use("/users", userRoutes);
 
 // Start Server Only After DB Connection
 connectDB()
